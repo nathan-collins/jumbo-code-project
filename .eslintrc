@@ -11,16 +11,20 @@
     "browser": true,
     "commonjs": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "parserOptions": {
     "ecmaFeatures": {
+      "ecmaVersion": 2018,
       "jsx": true
     },
     "sourceType": "module"
   },
   "rules": {
+    "no-console": "error",
     "import/no-unresolved": "off",
+    "no-eval": "error",
     "react/jsx-filename-extension": [
       1,
       {
@@ -32,7 +36,8 @@
       {
         "trailingComma": "es5",
         "singleQuote": true,
-        "printWidth": 100
+        "printWidth": 100,
+        "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
       }
     ]
   }
