@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow, mount, render } from 'enzyme'
-import MovieDetails from './MovieDetails'
+import MovieTile from './MovieTile'
 
 describe('Movie details component', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = shallow(<MovieDetails />)
+    wrapper = shallow(<MovieTile />)
   })
 
   it('displays an image', () => {
