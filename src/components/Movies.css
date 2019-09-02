@@ -1,0 +1,12 @@
+h2 {
+  font-size: 1.25rem;
+  color: #e3f4fc;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+#movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
