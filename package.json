@@ -3,20 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.0.0-rc.0",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.3.3",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "hookrouter": "^1.2.3",
     "react": "^16.9.0",
+    "react-aspect-ratio": "^1.0.40",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "react-test-renderer": "^16.9.0"
+    "react-test-renderer": "^16.9.0",
+    "router": "^1.3.3"
   },
   "prettier": {
     "printWidth": 80,
     "singleQuote": true,
     "bracketSpacing": true,
     "arrowParens": "always",
-    "semi": false,
-    "tabWidth": 2
+    "semi": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
   },
   "scripts": {
     "start": "react-scripts start",

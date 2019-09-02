@@ -25,19 +25,22 @@
     "no-console": "error",
     "import/no-unresolved": "off",
     "no-eval": "error",
+    "semi": true,
     "react/jsx-filename-extension": [
       1,
       {
         "extensions": [".js", ".jsx"]
       }
     ],
+    "react/prefer-stateless-function": ["enabled"],
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "es5",
         "singleQuote": true,
         "printWidth": 100,
-        "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+        "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
+        "semi": true
       }
     ]
   }

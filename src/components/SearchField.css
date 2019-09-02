@@ -1,0 +1,36 @@
+.header-search {
+  position: relative;
+  display: inline-block;
+  border-radius: 22px;
+  border: 6px solid #fff;
+  background: white;
+  margin-top: 20px;
+}
+
+.header-search {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .header-search {
+    display: flex;
+    margin: 10px;
+  }
+  .header-logo img {
+    float: left;
+    width: 100px;
+  }
+}
+
+.search-text-field {
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: #01d277;
+  width: 27px;
+  height: 27px;
+}

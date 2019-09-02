@@ -1,13 +1,67 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
+  font-family: 'RobotoCon';
+  text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.app {
+  background: #071d25;
+  background-image: url('./assets/images/backdrop.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: fixed;
+}
+
+@font-face {
+  font-family: RobotoCon;
+  src: url('./assets/fonts/roboto-condensed.light.ttf');
+  font-weight: 800;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: red;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .movie-card {
+    max-width: 100%;
+  }
+}
+
+.movie-card {
+  padding: 0px !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+  background: none !important;
+  max-width: 50%;
+  text-align: left;
+}
+
+.movie-header h2 {
+  color: #fff;
+  font-weight: 900;
+  padding-top: 30px;
+  padding-left: 10px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.movies {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.app-header img {
+  width: 120px;
+  height: auto;
+  padding-top: 50px;
 }
