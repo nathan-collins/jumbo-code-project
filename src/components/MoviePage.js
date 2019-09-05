@@ -4,12 +4,15 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import JumboHelper from './JumboHelper';
 import { navigate } from 'hookrouter';
 import { jumboConfig } from '../config/jumbo.js';
+import NoImageBackdrop from '../assets/images/no-image-backdrop.png';
 
 const MoviePage = ({ selectedMovie }) => {
-  console.log(selectedMovie);
-  const backdropStyle = {
-    backgroundImage: `url(${jumboConfig.api.imageHost}original/${selectedMovie.backdrop_path})`,
-  };
+  let backdropStyle = {};
+  if (!selectedMovie.backdrop_path) {
+    backdropStyle.backgroundImage = `url(${NoImageBackdrop})`;
+  } else {
+    backdropStyle.backgroundImage = `url(${jumboConfig.api.imageHost}original/${selectedMovie.backdrop_path})`;
+  }
 
   const posterPath = () => {
     if (!selectedMovie) return;
@@ -29,7 +32,7 @@ const MoviePage = ({ selectedMovie }) => {
       </div>
       <div className="overview">
         <div className="poster">
-          <img src={posterPath()} />
+          <img src={posterPath()} alt={selectedMovie.title} />
           <div className="details">
             <h2>{selectedMovie.title}</h2>
             <span>

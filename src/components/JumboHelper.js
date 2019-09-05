@@ -5,6 +5,7 @@ export default class JumboHelper {
    * @return {String} Release date formatted accordingly
    */
   static formatReleaseDate = (releaseDate, yearOnly = false) => {
+    if (!releaseDate) return;
     var date = new Date(releaseDate);
     if (!yearOnly) {
       const month = date.toLocaleString('default', { month: 'long' });

@@ -7,38 +7,44 @@ import { jumboConfig } from '../config/jumbo.js';
 const SearchField = () => {
   const [searchText, setSearch] = useState('');
 
-  const handleSearchInput = event => {
+  const handleSearchInput = (event) => {
     setSearch(event.target.value);
   };
 
-  const search = async event => {
+  const search = async (event) => {
+    if (searchText === '') return;
     event.preventDefault();
 
     const response = await fetch(
-      `${jumboConfig.api.host}${jumboConfig.api.search}?api_key=${jumboConfig.apiKey}&query=${searchText}`
+      `${jumboConfig.api.host}${jumboConfig.api.search}?api_key=${jumboConfig.api.key}&query=${searchText}`
     );
     const json = await response.json();
-    this.setState({ movies: json.results });
+    window.dispatchEvent(
+      new CustomEvent('search-results', { detail: { search: json } })
+    );
+    setSearch('');
   };
 
   return (
     <div className="col-sm-10 col-md-6 header-search">
-      <Input
-        InputProps={{
-          disableUnderline: true,
-          style: {
-            color: '#01D277',
-            paddingLeft: '8px',
-            fontWeight: '400',
-          },
-        }}
-        className="search-text-field"
-        value={searchText}
-        onChange={handleSearchInput}
-        margin="normal"
-        placeholder="Search"
-      />
-      <SearchIcon className="search-icon" />
+      <form onSubmit={search}>
+        <Input
+          InputProps={{
+            disableUnderline: true,
+            style: {
+              color: '#01D277',
+              paddingLeft: '8px',
+              fontWeight: '400',
+            },
+          }}
+          className="search-text-field"
+          value={searchText}
+          onChange={handleSearchInput}
+          margin="normal"
+          placeholder="Search"
+        />
+        <SearchIcon className="search-icon" onClick={search} />
+      </form>
     </div>
   );
 };

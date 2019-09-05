@@ -11,7 +11,7 @@ body {
   background-image: url('./assets/images/backdrop.png');
   background-position: top center;
   background-repeat: no-repeat;
-  background-size: fixed;
+  background-size: auto;
 }
 
 ::-webkit-input-placeholder {
