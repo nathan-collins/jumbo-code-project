@@ -18,21 +18,15 @@ describe('Search field component', () => {
   });
 
   it('displays a magnify glass', () => {
-    expect(wrapper.find('#search').exists()).toBeTrue();
+    expect(wrapper.find('.search-icon').exists()).toBe(true);
   });
 
   it('has a clickable magnify glass', () => {
     const mockCallBack = jest.fn();
-    const searchIcon = wrapper;
-    searchIcon.find('#search').simulate('click');
+    const searchIcon = mount(<SearchField back={mockCallBack} />);
+    searchIcon.find('.search-icon').simulate('click');
 
-    expect(mockCallBack.mock.calls.length).toEqual(1);
-  });
-
-  it('has a placeholder of search', () => {
-    expect(wrapper)
-      .find('input')
-      .textContent()
-      .toEqual('search');
+    expect(mockCallBack).toHaveBeenCalledTimes(1);
+    searchIcon.unmount();
   });
 });

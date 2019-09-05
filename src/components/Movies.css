@@ -8,7 +8,7 @@ h2 {
   justify-content: flex-start;
 }
 
-#movies {
+.movies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -31,7 +31,6 @@ const SearchField = () => {
       `${jumboConfig.api.host}${jumboConfig.api.search}?api_key=${jumboConfig.api.key}&query=${searchText}`
     );
     const json = await response.json();
-    console.log(json);
     // Send the search results to the parent
     window.dispatchEvent(
       new CustomEvent('search-results', { detail: { search: json } })
