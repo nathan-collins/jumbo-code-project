@@ -12,16 +12,15 @@
 
 .title {
   display: flex;
-  color: #ffffff;
   align-items: flex-start;
+  color: #ffffff;
   font-size: 0.875rem;
 }
 
 .movie-tile {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 15px;
+  padding: 13px;
   cursor: pointer;
 }
 
@@ -29,6 +28,17 @@
   position: relative;
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 660px) {
+  [style*='--aspect-ratio'] > img {
+    max-width: 197px;
+  }
+
+  .title {
+    max-width: 198px;
+    text-align: left;
+  }
 }
 
 #image img {

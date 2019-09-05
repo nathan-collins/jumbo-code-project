@@ -5,6 +5,7 @@ import JumboHelper from './JumboHelper';
 import { navigate } from 'hookrouter';
 import { jumboConfig } from '../config/jumbo.js';
 import NoImageBackdrop from '../assets/images/no-image-backdrop.png';
+import AspectRatio from 'react-aspect-ratio';
 
 /**
  * @param {Object} selectedMovie The movie that has been selected from the <Movies /> component
@@ -43,16 +44,22 @@ const MoviePage = ({ selectedMovie }) => {
       </div>
       <div className="overview">
         <div className="poster">
-          <img src={posterPath()} alt={selectedMovie.title} />
+          <AspectRatio ratio="1/2">
+            <img src={posterPath()} alt={selectedMovie.title} />
+          </AspectRatio>
           <div className="details">
             <h2>{selectedMovie.title}</h2>
-            <span>
-              {JumboHelper.formatReleaseDate(selectedMovie.release_date, true)}{' '}
-              - {JumboHelper.calculatePopularity(selectedMovie.vote_average)}{' '}
-              User Score
-            </span>
-            <span>{JumboHelper.formatRuntime(selectedMovie.runtime)}</span>
-            <span></span>
+            <div>
+              <p>
+                {JumboHelper.formatReleaseDate(
+                  selectedMovie.release_date,
+                  true
+                )}{' '}
+                - {JumboHelper.calculatePopularity(selectedMovie.vote_average)}{' '}
+                User Score
+              </p>
+              <p>{JumboHelper.formatRuntime(selectedMovie.runtime)}</p>
+            </div>
           </div>
         </div>
         <hr />
