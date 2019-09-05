@@ -1,3 +1,6 @@
+/**
+ * Config file for jumbo pages
+ */
 export const jumboConfig = {
   api: {
     username: 'jumboFED',

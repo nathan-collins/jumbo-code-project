@@ -4,13 +4,25 @@ import Input from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import { jumboConfig } from '../config/jumbo.js';
 
+/**
+ */
 const SearchField = () => {
+  /**
+   * Text state from the search input field
+   */
   const [searchText, setSearch] = useState('');
 
+  /**
+   * Input field change value assigns a value for search
+   * @param {Event} event onChange text input field
+   */
   const handleSearchInput = (event) => {
     setSearch(event.target.value);
   };
 
+  /**
+   * @param {Event} event Search form submission
+   */
   const search = async (event) => {
     if (searchText === '') return;
     event.preventDefault();
@@ -19,12 +31,18 @@ const SearchField = () => {
       `${jumboConfig.api.host}${jumboConfig.api.search}?api_key=${jumboConfig.api.key}&query=${searchText}`
     );
     const json = await response.json();
+    console.log(json);
+    // Send the search results to the parent
     window.dispatchEvent(
       new CustomEvent('search-results', { detail: { search: json } })
     );
+    // reset the search value
     setSearch('');
   };
 
+  /**
+   * @return {String} Search field markup
+   */
   return (
     <div className="col-sm-10 col-md-6 header-search">
       <form onSubmit={search}>
