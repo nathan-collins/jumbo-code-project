@@ -27,7 +27,6 @@ const MovieTile = ({ movie }) => {
    * @param {Event} event Navigate to the details page if the poster_path exists
    */
   const displayMovie = (event) => {
-    event.preventDefault();
     if (movie.poster_path) {
       navigate(`/detail/${movie.id}`);
     }
@@ -37,7 +36,7 @@ const MovieTile = ({ movie }) => {
     <div className="movie-tile" onClick={displayMovie}>
       <div id="image">
         <AspectRatio ratio="1/2">
-          <img src={imagePath()} alt={movie.title} />
+          <img className="tile-image" src={imagePath()} alt={movie.title} />
         </AspectRatio>
         <Badge
           badgeContent={JumboHelper.calculatePopularity(movie.vote_average)}

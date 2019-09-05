@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './MoviePage.css';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import JumboHelper from './JumboHelper';
@@ -12,13 +12,18 @@ import AspectRatio from 'react-aspect-ratio';
  * @return {String} Movie page markup
  */
 const MoviePage = ({ selectedMovie }) => {
-  // Set the backdrop image
-  let backdropStyle = {};
-  if (!selectedMovie.backdrop_path) {
-    backdropStyle.backgroundImage = `url(${NoImageBackdrop})`;
-  } else {
-    backdropStyle.backgroundImage = `url(${jumboConfig.api.imageHost}original/${selectedMovie.backdrop_path})`;
-  }
+  const [backdropStyle, setBackdropStyle] = useState({});
+
+  useEffect(() => {
+    // Set the backdrop image
+    if (!selectedMovie.backdrop_path) {
+      setBackdropStyle({ backgroundImage: `url(${NoImageBackdrop})` });
+    } else {
+      setBackdropStyle({
+        backgroundImage: `url(${jumboConfig.api.imageHost}original/${selectedMovie.backdrop_path})`,
+      });
+    }
+  }, [selectedMovie]);
 
   /**
    * @return {String} The path to display the poster image
@@ -45,12 +50,16 @@ const MoviePage = ({ selectedMovie }) => {
       <div className="overview">
         <div className="poster">
           <AspectRatio ratio="1/2">
-            <img src={posterPath()} alt={selectedMovie.title} />
+            <img
+              className="poster-image"
+              src={posterPath()}
+              alt={selectedMovie.title}
+            />
           </AspectRatio>
           <div className="details">
-            <h2>{selectedMovie.title}</h2>
+            <h2 className="title">{selectedMovie.title}</h2>
             <div>
-              <p>
+              <p className="release-date">
                 {JumboHelper.formatReleaseDate(
                   selectedMovie.release_date,
                   true
@@ -58,13 +67,15 @@ const MoviePage = ({ selectedMovie }) => {
                 - {JumboHelper.calculatePopularity(selectedMovie.vote_average)}{' '}
                 User Score
               </p>
-              <p>{JumboHelper.formatRuntime(selectedMovie.runtime)}</p>
+              <p className="runtime">
+                {JumboHelper.formatRuntime(selectedMovie.runtime)}
+              </p>
             </div>
           </div>
         </div>
         <hr />
         <h3>Overview</h3>
-        <p>{selectedMovie.overview}</p>
+        <p className="overview-text">{selectedMovie.overview}</p>
       </div>
     </div>
   );

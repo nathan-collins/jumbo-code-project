@@ -42,7 +42,7 @@ const Movies = () => {
         .then((data) => {
           const movies = data.results;
           setPageCount(data.total_pages);
-          setPerPage(data.results.length);
+          setPerPage(movies.length);
           setMovies(movies);
         });
     } catch (error) {
@@ -72,6 +72,7 @@ const Movies = () => {
    */
   const listMovies = (movies) => {
     if (!movies || movies.length === 0) return;
+    console.log(JSON.stringify(movies));
     return movies.map((movie, index) => {
       return <MovieTile key={index} movie={movie} />;
     });
@@ -94,7 +95,7 @@ const Movies = () => {
       </header>
       <SearchField id="searchField" />
       <h2>Popular Movies</h2>
-      <div id="movies">{listMovies(movies)}</div>
+      <div className="movies">{listMovies(movies)}</div>
       <ReactPaginate
         previousLabel={'previous'}
         nextLabel={'next'}

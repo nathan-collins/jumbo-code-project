@@ -29,9 +29,7 @@ const MovieDetails = ({ movieId }) => {
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
             const movie = data;
-            console.log(movie);
             setSelectedMovie(movie);
           });
       } catch (error) {

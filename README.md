@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 [Demo page](https://jumbo-56c92.firebaseapp.com)
+[Requirements](https://www.figma.com/file/aDiYwgM0CphHYblFSENqyj88/TMDB?node-id=1%3A10)
 
 ## Notes
 
