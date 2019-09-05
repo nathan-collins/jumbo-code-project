@@ -6,6 +6,13 @@ body {
   color: #e6f7ff;
 }
 
+h2,
+h3,
+h4,
+h5 {
+  font-family: Montserrat;
+}
+
 .app {
   background: #071d25;
   background-image: url('./assets/images/backdrop.png');

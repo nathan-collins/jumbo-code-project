@@ -88,7 +88,7 @@ const Movies = () => {
   };
 
   return (
-    <div>
+    <div id="moviesContainer">
       <header className="app-header">
         <img src={logo} className="logo" alt="logo" />
       </header>
