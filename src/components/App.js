@@ -7,7 +7,6 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import Movies from './Movies';
 import MovieDetails from './MovieDetails';
 import NoPageFound from './NoPageFound';
-import { Store } from '../Store';
 
 const jumboTheme = createMuiTheme({
   palette: {
@@ -33,7 +32,6 @@ const routes = {
 };
 
 const App = () => {
-  const store = React.useContext(Store);
   const routeResult = useRoutes(routes);
 
   return (
