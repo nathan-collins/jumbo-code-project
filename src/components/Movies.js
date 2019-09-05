@@ -6,20 +6,26 @@ import logo from '../assets/images/logo.png';
 import { jumboConfig } from '../config/jumbo.js';
 import ReactPaginate from 'react-paginate';
 
+/**
+ * @return {String} Movies page display
+ */
 const Movies = () => {
   const [movies, setMovies] = useState();
   const [pageCount, setPageCount] = useState(0);
   const [perPage, setPerPage] = useState(20);
-  const [offset, setOffset] = useState({ offset: 1 });
   const [currentPage, setCurrentPage] = useState(1);
 
+  /**
+   */
   useEffect(() => {
     window.addEventListener('search-results', (event) => populateSearch(event));
     fetchMovies();
   }, []);
 
+  /**
+   * Fetch the movies
+   */
   const fetchMovies = async () => {
-    console.log('Does it make it here?');
     try {
       await fetch(
         `${jumboConfig.api.host}${jumboConfig.api.discover}?api_key=${jumboConfig.api.key}&page=${currentPage}`,
@@ -34,7 +40,6 @@ const Movies = () => {
       )
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           const movies = data.results;
           setPageCount(data.total_pages);
           setPerPage(data.results.length);
@@ -57,6 +62,8 @@ const Movies = () => {
    * @param {Event} event Set results based on search query
    */
   const populateSearch = (event) => {
+    setPageCount(event.detail.search.total_pages);
+    setPerPage(event.detail.search.results.length);
     setMovies(event.detail.search.results);
   };
 
@@ -70,13 +77,13 @@ const Movies = () => {
     });
   };
 
+  /**
+   * @param {Object} data Data after the pagination click
+   */
   const handlePageClick = (data) => {
-    console.log(data);
     let selected = data.selected;
-    let offset = Math.ceil(selected * { perPage });
 
     setCurrentPage(selected + 1);
-    setOffset({ offset: offset });
     fetchMovies();
   };
 

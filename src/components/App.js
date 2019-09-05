@@ -8,6 +8,9 @@ import Movies from './Movies';
 import MovieDetails from './MovieDetails';
 import NoPageFound from './NoPageFound';
 
+/**
+ * Theme colours
+ */
 const jumboTheme = createMuiTheme({
   palette: {
     primary: {
@@ -26,11 +29,17 @@ const jumboTheme = createMuiTheme({
   },
 });
 
+/**
+ * Routes between the movie view and movie list
+ */
 const routes = {
   '/': () => <Movies />,
   '/detail/:id': ({ id }) => <MovieDetails movieId={id} />,
 };
 
+/**
+ * @return {String} App container markup
+ */
 const App = () => {
   const routeResult = useRoutes(routes);
 

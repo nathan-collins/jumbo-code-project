@@ -7,7 +7,15 @@ import AspectRatio from 'react-aspect-ratio';
 import JumboHelper from './JumboHelper';
 import noImage from '../assets/images/no-image.jpg';
 
+/**
+ * @param {Object} movie Movie tile values
+ * @return {String} Movie tile displayed on the page
+ */
 const MovieTile = ({ movie }) => {
+  /**
+   * Image to display on the tile
+   * @return {String} If no image show a place holder
+   */
   const imagePath = () => {
     if (!movie.poster_path) {
       return `${noImage}`;
@@ -15,6 +23,9 @@ const MovieTile = ({ movie }) => {
     return `${jumboConfig.api.imageHost}w300/${movie.poster_path}`;
   };
 
+  /**
+   * @param {Event} event Navigate to the details page if the poster_path exists
+   */
   const displayMovie = (event) => {
     event.preventDefault();
     if (movie.poster_path) {

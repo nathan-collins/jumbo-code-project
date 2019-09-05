@@ -4,9 +4,15 @@ import './MovieDetails.css';
 import { jumboConfig } from '../config/jumbo.js';
 import MoviePage from './MoviePage';
 
+/**
+ * @param {Number} movieId The movie id to query for movie details
+ * @return {String} Process the movie display page
+ */
 const MovieDetails = ({ movieId }) => {
   const [selectedMovie, setSelectedMovie] = useState();
 
+  /**
+   */
   useEffect(() => {
     const fetchMovie = async () => {
       try {
@@ -38,10 +44,17 @@ const MovieDetails = ({ movieId }) => {
     fetchMovie();
   }, [movieId]);
 
+  /**
+   * If there is no movieId move back to the list
+   */
   if (!movieId) {
     navigate(`/`);
   }
 
+  /**
+   *
+   * @param {Object} selectedMovie Display the page for the selected movie
+   */
   const MoviePageDisplay = (selectedMovie) => {
     if (!selectedMovie) return;
     return <MoviePage selectedMovie={selectedMovie} />;
