@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
 import Movies from './Movies';
 import SearchField from './SearchField';
-import { jumboConfig } from '../config/config.js';
+import { jumboConfig } from '../config/jumbo.js';
 
 configure({ adapter: new Adapter() });
 
@@ -58,7 +58,7 @@ describe('Application container', () => {
     expect(mockCallBack.mock.calls.length).toEqual(1);
   });
 
-  it('returns a successful response', done => {
+  it('returns a successful response', (done) => {
     const mockSuccessResponse = {};
     const mockJsonPromise = Promise.resolve(mockSuccessResponse);
     const mockFetchPromise = Promise.resolve({

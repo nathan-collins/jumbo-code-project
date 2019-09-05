@@ -3,8 +3,9 @@ export const jumboConfig = {
     username: 'jumboFED',
     password: 'jumbofrontendcode',
     host: 'https://api.themoviedb.org/3/',
-    imageHost: 'https://image.tmdb.org/t/p/w300/',
-    search: 'discover/movie',
+    imageHost: 'https://image.tmdb.org/t/p/',
+    discover: 'movie/popular',
+    movie: 'movie',
     key: '6ed12e064b90ae1290fa326ce9e790ff',
   },
   assets: {
