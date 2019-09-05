@@ -7,13 +7,8 @@
   margin-top: 20px;
 }
 
-.header-search {
-  display: flex;
-}
-
 @media (min-width: 768px) {
   .header-search {
-    display: flex;
     margin: 10px;
   }
   .header-logo img {
@@ -33,4 +28,9 @@
   color: #01d277;
   width: 27px;
   height: 27px;
+  cursor: pointer;
+}
+
+.header-search .MuiFormControl-marginNormal {
+  margin: 0;
 }

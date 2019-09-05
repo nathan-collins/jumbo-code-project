@@ -17,3 +17,7 @@ h2 {
 p {
   margin: 8px 0;
 }
+
+header {
+  min-height: 260px;
+}

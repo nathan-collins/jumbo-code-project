@@ -1,33 +1,25 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './MovieTile.css';
 import { navigate } from 'hookrouter';
 import { jumboConfig } from '../config/jumbo.js';
 import Badge from '@material-ui/core/Badge';
 import AspectRatio from 'react-aspect-ratio';
 import JumboHelper from './JumboHelper';
+import noImage from '../assets/images/no-image.jpg';
 
 const MovieTile = ({ movie }) => {
   const imagePath = () => {
+    if (!movie.poster_path) {
+      return `${noImage}`;
+    }
     return `${jumboConfig.api.imageHost}w300/${movie.poster_path}`;
   };
 
-  /**
-   *
-   * @param {String} str
-   */
-  const toKebabCase = (str) =>
-    str &&
-    str
-      .match(
-        /[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g
-      )
-      .map((x) => x.toLowerCase())
-      .join('-');
-
   const displayMovie = (event) => {
     event.preventDefault();
-
-    navigate(`/detail/${movie.id}`);
+    if (movie.poster_path) {
+      navigate(`/detail/${movie.id}`);
+    }
   };
 
   return (
