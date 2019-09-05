@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 
 import { useRoutes } from 'hookrouter';
@@ -35,11 +35,13 @@ const App = () => {
   const routeResult = useRoutes(routes);
 
   return (
-    <div className="app">
-      <ThemeProvider theme={jumboTheme}>
-        <div className="container">{routeResult || <NoPageFound />}</div>
-      </ThemeProvider>
-    </div>
+    <Fragment>
+      <div className="app">
+        <ThemeProvider theme={jumboTheme}>
+          {routeResult || <NoPageFound />}
+        </ThemeProvider>
+      </div>
+    </Fragment>
   );
 };
 

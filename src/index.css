@@ -1,8 +1,9 @@
 body {
   margin: 0;
   font-size: 20px;
-  font-family: 'RobotoCon';
+  font-family: 'Roboto', sans-serif;
   text-align: center;
+  color: #e6f7ff;
 }
 
 .app {
@@ -11,12 +12,6 @@ body {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: fixed;
-}
-
-@font-face {
-  font-family: RobotoCon;
-  src: url('./assets/fonts/roboto-condensed.light.ttf');
-  font-weight: 800;
 }
 
 ::-webkit-input-placeholder {
@@ -29,6 +24,14 @@ body {
   .movie-card {
     max-width: 100%;
   }
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
 }
 
 .movie-card {
